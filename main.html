@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Correo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            /* Hacer el contenedor más ancho */
+            max-width: 800px;
+            /* Establecer un ancho máximo */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .success {
+            color: green;
+            font-size: 0.9em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            /* Alinear verticalmente */
+        }
+
+        .success svg {
+            width: 24px;
+            /* Establecer el tamaño del SVG */
+            height: 24px;
+            margin-right: 5px;
+            /* Espacio entre el SVG y el texto */
+        }
+
+        .texto {
+            text-align: center;
+            /* Centrar horizontalmente */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="texto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                <!-- Silueta de un ave -->
+                <path d="M 25,50
+                 C 25,30 45,15 50,15
+                 C 55,15 75,30 75,50
+                 C 75,70 50,85 50,85
+                 C 50,85 25,70 25,50
+                 Z" fill="#2E86AB" />
+                <!-- Texto "Glidez" -->
+                <text x="50%" y="95%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif"
+                    font-size="20" fill="#2E86AB">Glidez</text>
+            </svg>
+
+        </div>
+        <h2>Enviar Correo</h2>
+
+        <br><br><br><br>
+        <form id="emailForm" action="#" method="post" onsubmit="return openMailClient()">
+            <label for="subject">Asunto:</label>
+            <input type="text" id="subject" name="subject" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <input type="submit" value="Enviar">
+        </form>
+        <div id="successMessage" class="success" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+            </svg>
+            ¡El correo se ha enviado correctamente!
+        </div>
+    </div>
+
+    <script>
+        function openMailClient() {
+            var email = "rocadmata2003@gmail.com";
+            var mailtoLink = "mailto:" + email;
+            window.location.href = mailtoLink;
+            return false; // Retornamos false para evitar el envío real del formulario
+        }
+    </script>
+
+</body>
+
+</html>
